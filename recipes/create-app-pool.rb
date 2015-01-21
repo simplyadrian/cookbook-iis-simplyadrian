@@ -8,7 +8,7 @@
 #
 
 #creates a new app pool
-node['iis_naitivex']['pool_name'].each do |pool_name|
+node['iis_nativex']['pool_name'].each do |pool_name|
   iis_pool pool_name do
     runtime_version node['iis_nativex']['runtime_version']
     pipeline_mode node['iis_nativex']['pipeline_mode']
