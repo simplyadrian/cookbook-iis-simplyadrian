@@ -12,7 +12,7 @@ include_recipe "iis-nativex::add-windows-feature"
 include_recipe "iis-nativex::create-app-pool"
 include_recipe "iis-nativex::create-config-sites"
 
-ruby windows_package 'MSDeploy x64 3.5' do
+windows_package 'MSDeploy x64 3.5' do
 	source 'http://go.microsoft.com/fwlink/?LinkID=309497'
 	action :install
 end
