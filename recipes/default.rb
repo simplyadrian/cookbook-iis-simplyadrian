@@ -7,8 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-windows_package 'Web Deploy v3.5' do
-	package_name 'Web Deploy v3.5'
+windows_package 'Microsoft Web Deploy v3.5' do
 	source "C:\\chef\\cache\\cookbooks\\iis-nativex\\files\\default\\WebDeploy_amd64_en-US.msi"
 	installer_type :msi
 	action :install
