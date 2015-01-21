@@ -20,7 +20,7 @@ node['iis_nativex']['site_name'].each do |site_name|
     port 80
     path "C:\\inetpub\\wwwroot\\#{site_name}"
     host_header "#{site_name}"
-    application_pool "#{node['iis_nativex']['pool_name']}"
+    application_pool "#{site_name}"
     action [:add,:start]
   end
 end
