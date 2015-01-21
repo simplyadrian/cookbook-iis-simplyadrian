@@ -12,7 +12,10 @@ include_recipe "iis-nativex::add-windows-feature"
 include_recipe "iis-nativex::create-app-pool"
 include_recipe "iis-nativex::create-config-sites"
 
-windows_package 'MSDeploy x64 3.5' do
+windows_package 'Web Deploy v3.5' do
+	package_name 'Web Deploy v3.5'
 	source 'https://s3.amazonaws.com/installers-thirdparty-nativex/WebDeploy_amd64_en-US.msi'
+	installer_type :msi
+	options 'ADDLOCAL=ALL, /quiet -Wait'
 	action :install
 end
