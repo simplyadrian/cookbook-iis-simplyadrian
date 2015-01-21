@@ -13,6 +13,6 @@ include_recipe "iis-nativex::create-app-pool"
 include_recipe "iis-nativex::create-config-sites"
 
 windows_package 'MSDeploy x64 3.5' do
-	source 'http://go.microsoft.com/fwlink/?LinkID=309497'
+	source 'https://s3.amazonaws.com/installers-thirdparty-nativex/WebDeploy_amd64_en-US.msi'
 	action :install
 end
