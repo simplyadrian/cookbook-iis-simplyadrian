@@ -7,11 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
-#creates a new app pool
-node['iis_nativex']['pool_name'].each do |pool_name|
-  iis_pool pool_name do
-    runtime_version node['iis_nativex']['runtime_version']
-    pipeline_mode node['iis_nativex']['pipeline_mode']
+node['iis-nativex']['enabled_pools'].each do |pool_cfg|
+  iis_pool pool_cfg['pool_name'] do
+    runtime_version pool_cfg['runtime_version']
+    pipeline_mode pool_cfg['pipeline_mode']
+    pool_username pool_cfg['pool_username']
+    pool_password pool_cfg['pool_password']
     action :add
   end
 end

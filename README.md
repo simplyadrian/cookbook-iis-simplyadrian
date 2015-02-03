@@ -1,23 +1,16 @@
 iis-nativex Cookbook
 ====================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook configures a windows server with IIS roles and features for NativeX purposes
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - iis-nativex needs toaster to brown your bagel.
+#### cookbooks
+- `windows` - iis-nativex needs windows to install features and pacakages.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
 #### iis-nativex::default
 <table>
   <tr>
@@ -27,19 +20,17 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['iis-nativex']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['iis-nativex']['features']</tt></td>
+    <td>String</td>
+    <td>A list of IIS features you want to have installed on your web server.</td>
+    <td><tt>[]</tt></td>
   </tr>
 </table>
 
 Usage
 -----
 #### iis-nativex::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
 Just include `iis-nativex` in your node's `run_list`:
 
 ```json
@@ -51,18 +42,6 @@ Just include `iis-nativex` in your node's `run_list`:
 }
 ```
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
-
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
-
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Adrian Herrera
