@@ -23,7 +23,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     path site_cfg['path']
     action [:add]
   end
-  site_cfg['headers'].each do |h|
+  site_cfg['headers'].to_a.each do |h|
     iis_site site_cfg['site_name'] do
       host_header h['host_header']
       action [:add]
