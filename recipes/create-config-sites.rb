@@ -38,10 +38,10 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
 end
 
 #create physical locations
-node['iis-nativex']['enabled_sites'].each do |mkdir|
-  directory "C:\\inetpub\\wwwroot\\#{mkdir}" do
+#node['iis-nativex']['enabled_sites'].each do |mkdir|
+#  directory "C:\\inetpub\\wwwroot\\#{mkdir}" do
     #rights :read, 'TEAMFREEZE\Everyone'
     #rights :full_control, 'TEAMFREEZE\W3iApi'
-    action :create
-  end
-end
+#    action :create
+#  end
+#end
