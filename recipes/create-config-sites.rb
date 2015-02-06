@@ -29,7 +29,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
       action [:add]
     end
   end
-  site_cfg['enabled_pools'].each do |p|
+  site_cfg['enabled_pools'].to_a.each do |p|
     iis_site site_cfg['pool_name'] do
       application_pool p['pool_name']
       action [:add,:start]
