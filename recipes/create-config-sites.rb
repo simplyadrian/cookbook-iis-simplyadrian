@@ -20,7 +20,6 @@ node['iis-nativex']['enabled_sites'].each do |mkdir|
     action :create
   end
 end
-raise"The document root equals #{node['iis']['docroot']}" if true
 
 # create and start a new site that maps to
 # the physical location C:\inetpub\wwwroot\#{site_name}
