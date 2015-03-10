@@ -15,5 +15,4 @@ node['iis-nativex']['enabled_pools'].each do |pool_cfg|
     pool_password pool_cfg['pool_password']
     action :add
   end
-  raise"username equals #{pool_cfg['pool_username']} and password equals #{pool_cfg['pool_password']}" if true
 end
