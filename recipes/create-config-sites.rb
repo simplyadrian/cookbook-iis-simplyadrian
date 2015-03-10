@@ -15,10 +15,9 @@ end
 #create physical locations
 node['iis-nativex']['enabled_sites'].each do |mkdir|
   directory "#{node['iis']['docroot']}/#{mkdir['site_name']}" do
-    #rights :read, 'TEAMFREEZE\Everyone'
-    #rights :full_control, 'TEAMFREEZE\W3iApi'
+    rights :full_control, node['iis-nativex']['enabled_pools'][:pool_username]
+    recursive true
     action :create
-    not_if File.exists?("#{node['iis']['docroot']}/#{mkdir['site_name']}") 
   end
 end
 
