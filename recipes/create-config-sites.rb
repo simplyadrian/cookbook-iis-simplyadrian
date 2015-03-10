@@ -33,7 +33,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     protocol site_cfg['protocol']
     port site_cfg['port']
     path site_cfg['path']
-    action [:add, :start]
+    action [:add, :config, :start]
   end
   site_cfg['host_header'].each do |h|
     iis_site site_cfg['site_name'] do
@@ -42,7 +42,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     end
   end
   site_cfg['pool_name'].each do |p|
-    iis_site site_cfg['pool_name'] do
+    iis_site site_cfg['site_name'] do
       application_pool p['pool_name']
       action [:config, :restart]
     end
