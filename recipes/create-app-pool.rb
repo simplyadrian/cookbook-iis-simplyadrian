@@ -13,6 +13,7 @@ node['iis-nativex']['enabled_pools'].each do |pool_cfg|
     pipeline_mode pool_cfg['pipeline_mode']
     pool_username pool_cfg['pool_username']
     pool_password pool_cfg['pool_password']
-    action :add
+    action [:add, :config, :start]
+    not_if 
   end
 end

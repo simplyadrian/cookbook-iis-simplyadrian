@@ -18,6 +18,13 @@ node['iis-nativex']['enabled_sites'].each do |mkdir|
     #rights :read, 'TEAMFREEZE\Everyone'
     #rights :full_control, 'TEAMFREEZE\W3iApi'
     action :create
+    not_if File.exists?("#{node['iis']['docroot']}/#{mkdir['site_name']}") 
+  end
+end
+
+node['iis-nativex']['enabled_sites'].each do |site_service|
+  iis_site site_service['site_name'] do
+    action :nothing
   end
 end
 
@@ -28,18 +35,18 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     protocol site_cfg['protocol']
     port site_cfg['port']
     path site_cfg['path']
-    action [:add]
+    action [:add, :start]
   end
   site_cfg['host_header'].each do |h|
     iis_site site_cfg['site_name'] do
       host_header h['host_header']
-      action [:add]
+      action [:config, :restart]
     end
   end
   site_cfg['pool_name'].each do |p|
     iis_site site_cfg['pool_name'] do
       application_pool p['pool_name']
-      action [:add,:start]
+      action [:config, :restart]
     end
   end
 end
