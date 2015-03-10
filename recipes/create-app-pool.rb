@@ -15,5 +15,5 @@ node['iis-nativex']['enabled_pools'].each do |pool_cfg|
     pool_password pool_cfg['pool_password']
     action :add
   end
-   Chef::Log.info("The pool_username is #{node['iis-nativex']['pool_username']} and the pool_password is #{node['iis-nativex']['pool_password']}")
+   Chef::Log.info("The pool_username is #{node['pool_username']} and the pool_password is #{node['pool_password']}")
 end
