@@ -36,6 +36,5 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
       port site_cfg['port']
       action [:config]
     end
-    raise"The host headers for #{site_cfg['site_name']} are #{site_cfg['host_header']}" if true
   end
 end
