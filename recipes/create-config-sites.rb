@@ -35,11 +35,13 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
       host_header h['host_header']
       action [:config]
     end
+    raise"The host headers for #{site_cfg['site_name']} are #{site_cfg['host_header']}" if true
   end
   site_cfg['pool_name'].each do |p|
     iis_site site_cfg['site_name'] do
       application_pool p['pool_name']
       action [:config]
     end
+    raise"The pool name for #{site_cfg['site_name']} are #{site_cfg['pool_name']}"
   end
 end
