@@ -7,8 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "iis-nativex::create-app-pool"
-
 # stop and delete the default site
 iis_site 'Default Web Site' do
   action [:stop, :delete]
@@ -16,12 +14,13 @@ end
 
 #create physical locations
 node['iis-nativex']['enabled_sites'].each do |mkdir|
-  directory "C:\\inetpub\\wwwroot\\#{mkdir}" do
+  directory "#{node['iis']['docroot']}/#{mkdir['site_name']}" do
     #rights :read, 'TEAMFREEZE\Everyone'
     #rights :full_control, 'TEAMFREEZE\W3iApi'
     action :create
   end
 end
+raise"The document root equals #{node['iis']['docroot']}" if true
 
 # create and start a new site that maps to
 # the physical location C:\inetpub\wwwroot\#{site_name}
