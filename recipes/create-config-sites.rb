@@ -15,7 +15,6 @@ end
 #create physical locations
 node['iis-nativex']['enabled_sites'].each do |mkdir|
   directory "#{node['iis']['docroot']}/#{mkdir['site_name']}" do
-    rights :full_control, node['iis-nativex']['enabled_pools'][:pool_username]
     recursive true
     action :create
   end
