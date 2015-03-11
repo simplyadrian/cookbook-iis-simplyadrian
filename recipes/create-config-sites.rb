@@ -34,9 +34,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
   end
   site_cfg[:host_header].each do |header|
     iis_site site_cfg[:site_name] do
-      bindings "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:, 
-      #{site_cfg[:protocol]}/*:#{site_cfg[:port]}:#{header}, 
-      #{site_cfg[:protocol]}/*:#{site_cfg[:port]}:api.w3i.com"
+      bindings "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:' api.w3i.com appclick.co'"
       action [:add, :config]
     end
   end
