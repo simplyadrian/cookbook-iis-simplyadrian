@@ -23,19 +23,18 @@ end
 # create and start a new site that maps to
 # the physical location C:\inetpub\wwwroot\#{site_name}
 node['iis-nativex']['enabled_sites'].each do |site_cfg|
-  iis_site site_cfg['site_name'] do
-    protocol site_cfg['protocol']
-    port site_cfg['port']
-    path site_cfg['path']
-    application_pool site_cfg['pool_name']
+  iis_site site_cfg[:site_name] do
+    protocol site_cfg[:protocol]
+    port site_cfg[:port]
+    path site_cfg[:path]
+    application_pool site_cfg[:pool_name]
     action [:add, :config]
   end
-  site_cfg['host_header'].each do |header|
-    iis_site site_cfg['site_name'] do
+  site_cfg[:host_header].each do |header|
+    iis_site site_cfg[:site_name] do
       host_header header
       action :config
     end
-    raise "The host_headers for the site #{site_cfg['site_name']} are #{header}" if header != ‘’
     raise "The host_headers for the site #{site_cfg['site_name']} are #{header}" unless header.blank?
   end
 end
