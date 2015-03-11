@@ -29,13 +29,14 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     protocol site_cfg[:protocol]
     port site_cfg[:port]
     path site_cfg[:path]
+    host_header node['iis-nativex']['host_header1']
     application_pool site_cfg[:pool_name]
     action [:add, :config]
   end
   site_cfg[:host_header].each do |header|
     iis_site site_cfg[:site_name] do
-      bindings "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:#{header}"
-      action [:add]
+      bindings "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:, #{site_cfg[:protocol]}/*:#{site_cfg[:port]}:api.w3i.com, #{site_cfg[:protocol]}/*:#{site_cfg[:port]}:appclick.co"
+      action [:config]
     end
   end
 end
