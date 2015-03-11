@@ -30,11 +30,12 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     application_pool site_cfg['pool_name']
     action [:add, :config]
   end
-end
-
-node['iis-nativex']['enabled_sites']['host_header'].each do |header|
-  iis_site header['site_name'] do
-    host_header header['host_header']
-    action :config
+  site_cfg['host_header'].each do |h|
+    iis_site site_cfg['site_name'] do
+      #bindings "#{site_cfg['protocol']}/*:#{site_cfg['port']}:#{h['host_header']}"
+      host_header h['host_header']
+      action :config
+    end
+    raise "The host_headers for the site #{site_cfg['site_name']} are #{h['host_header']}" if true
   end
 end
