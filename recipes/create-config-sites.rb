@@ -35,7 +35,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
       #bindings "#{site_cfg['protocol']}/*:#{site_cfg['port']}:#{h['host_header']}"
       host_header h['host_header']
       port site_cfg['port']
-      portocol site_cfg['protocol']
+      protocol site_cfg['protocol']
       action [:config]
     end
   end
