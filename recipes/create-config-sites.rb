@@ -32,7 +32,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
   end
 end
 
-node['iis-nativex']['enabled_sites'].each do |header|
+node['iis-nativex']['enabled_sites']['host_header'].each do |header|
   iis_site header['site_name'] do
     host_header header['host_header']
     action :config
