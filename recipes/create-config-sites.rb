@@ -35,6 +35,6 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
       host_header header
       action :config
     end
-    raise "The host_headers for the site #{site_cfg['site_name']} are #{header}" unless header.blank?
+    raise "The host_headers for the site #{site_cfg['site_name']} are #{header}" if true
   end
 end
