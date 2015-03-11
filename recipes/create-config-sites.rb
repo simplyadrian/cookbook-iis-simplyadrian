@@ -29,8 +29,13 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     protocol site_cfg[:protocol]
     port site_cfg[:port]
     path site_cfg[:path]
-    host_header bindString
     application_pool site_cfg[:pool_name]
     action [:add, :config]
+  end
+  BindingsString.getBindingsStringFromSiteConfig.each do |header|
+    iis_site site_cfg[:site_name] do
+      bindings header
+      action [:config]
+    end
   end
 end
