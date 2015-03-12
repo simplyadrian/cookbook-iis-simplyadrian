@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include iisNativex::Helper
+
 # stop and delete the default site
 iis_site 'Default Web Site' do
   action [:stop, :delete]
@@ -19,8 +21,6 @@ node['iis-nativex']['enabled_sites'].each do |mkdir|
     action :create
   end
 end
-
-
 
 # create and start a new site that maps to
 # the physical location C:\inetpub\wwwroot\#{site_name}

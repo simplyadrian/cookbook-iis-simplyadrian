@@ -1,15 +1,13 @@
-module NativeX
-  module IIS
-    module Helper
-	# We can call this with BindingsString.getBindingsStringFromSiteConfig
-    def self.getBindingsString
-      bindingString = []
-      node['iis-nativex']['enabled_sites'][:host_header].each do |header|
-        puts "http/*:80:#{header}"
-    	bindingString.push(header)
-    end
-      end
-      bindingString
-    end
+module iisNativex
+  module Helper
+  	def self.getBindingsString(site_cfg)
+  	  Chef::Log.debug("Compiling string values from site config")
+  	  bindingString = []
+  	  site_cfg[:host_header].each do |header|
+  	  	puts "http/*:80:#{header}"
+  	  	bindingString.push(header)
+  	  end
+  	 Chef::Log.debug("Site config bindings resolved to #{bindingString}")
+    return bindingString
   end
 end
