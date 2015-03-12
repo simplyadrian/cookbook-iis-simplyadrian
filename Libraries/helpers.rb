@@ -10,4 +10,5 @@ module NativeX
       Chef::Log.debug("About to create #{bindingString.length}")
       bindingString
     end
+  end
 end
