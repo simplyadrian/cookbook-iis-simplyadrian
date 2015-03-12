@@ -33,7 +33,9 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     action [:add, :config]
   end
   iis_site site_cfg[:site_name] do
-    bindings get_bindings_string( site_cfg ).join(" ")
+    bindings get_bindings_string( site_cfg ).join(",")
     action [:config]
   end
 end
+
+#must be a kind of String!  You passed ["http/*:80:", "http/*:80:api.w3i.com", "http/*:80:appclick.co"].
