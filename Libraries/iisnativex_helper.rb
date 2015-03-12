@@ -16,11 +16,12 @@ module IisNativex
   module Helper
   
     def get_bindings_string( site_cfg )
+      Chef::Log.debug("Parsing the provided site_cfg to compile bindingString")
       bindingString = ''
       site_cfg[:host_header].each do |header|
       bindingString << "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:#{header}"
       end
-    return bindingString
+    Chef::Log.info("The string being used for each site equals #{bindingString.length}")
     end
   end
 end
