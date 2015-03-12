@@ -7,7 +7,9 @@ module NativeX
       node['iis-nativex']['enabled_sites'][:host_header].each do |header|
         puts "http/*:80:#{header}"
     	bindingString.push(header)
+    end
       end
       bindingString
+    end
   end
 end
