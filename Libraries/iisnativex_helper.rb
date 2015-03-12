@@ -20,7 +20,7 @@ module IisNativex
       site_cfg[:host_header].each do |header|
       bindingString << "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:#{header}"
       end
-    Chef::Log.info("The string being used for each site equals #{bindingString.length}")
+    Chef::Log.debug("The string being used for each site equals #{bindingString.length}")
     return bindingString
     end
   end

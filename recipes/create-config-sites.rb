@@ -36,4 +36,5 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     bindings get_bindings_string( site_cfg )
     action [:config]
   end
+  Chef::Log.info("#{get_bindings_string.length}")
 end
