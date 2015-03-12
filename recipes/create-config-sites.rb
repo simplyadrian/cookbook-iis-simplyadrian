@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include iisNativex::Helper
+include IisNativex::Helper
 
 # stop and delete the default site
 iis_site 'Default Web Site' do
