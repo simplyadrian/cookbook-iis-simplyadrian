@@ -34,7 +34,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
   end
   site_cfg[:host_header] do |header|
     iis_site site_cfg[:site_name] do
-      bindings collection
+      bindings bindingString
       action [:config]
     end
   end
