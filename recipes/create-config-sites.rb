@@ -33,7 +33,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     action [:add, :config]
   end
   iis_site site_cfg[:site_name] do
-    bindings get_bindings_string( site_cfg )
+    bindings get_bindings_string( site_cfg ).to_s
     action [:config]
   end
 end
