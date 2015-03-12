@@ -15,7 +15,7 @@
 module IisNativex
   module Helper
   
-    def self.getBindingsStringFromSiteConfig( site_cfg )
+    def get_bindings_string( site_cfg )
       bindingString = ''
       site_cfg[:host_header].each do |header|
       bindingString << "#{site_cfg[:protocol]}/*:#{site_cfg[:port]}:#{header}"

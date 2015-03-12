@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-Chef::Resource::IisSite.send(:include, IisNativex::Helper)
+::Chef::Recipe.send(:include, IisNativex::Helper)
 
 # stop and delete the default site
 iis_site 'Default Web Site' do
@@ -34,7 +34,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
   end
   site_cfg[:host_header].each do |header|
     iis_site site_cfg[:site_name] do
-      bindings bindingString
+      bindings get_binding_string(site_cfg)
       action [:config]
     end
   end
