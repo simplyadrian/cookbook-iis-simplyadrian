@@ -32,7 +32,7 @@ node['iis-nativex']['enabled_sites'].each do |site_cfg|
     application_pool site_cfg[:pool_name]
     action [:add, :config]
   end
-  site_cfg[:host_header].each do |header|
+  get_bindings_string.site_cfg[:host_header].each do |header|
     iis_site site_cfg[:site_name] do
       bindings get_bindings_string
       action [:config]
