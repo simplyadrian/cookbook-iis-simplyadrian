@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-Chef::Resource::IisSite.send(:include, IisNativex::Helper)
+::Chef::Recipe.send(:include, IisNativex::Helper)
 
 # stop and delete the default site
 iis_site 'Default Web Site' do
