@@ -11,6 +11,7 @@
 node['iis-nativex']['services'].each do |srv|
   service srv[:services] do
   action :stop
+  end
   Chef::Log.log("Stopping IIS services before I install the ARR feature and dependencies")
 end
 
@@ -24,13 +25,14 @@ node['iis-nativex']['arr_application'].each do |win_pkg|
     timeout win_pkg[:timeout]
     version win_pkg[:version]
     action :install
-    Chef::Log.log("Installing the ARR features and dependencies.")
   end
+  Chef::Log.log("Installing the ARR features and dependencies.")
 end
 
 # Start IIS and and Web Management Service
 node['iis-nativex']['services'].each do |srv|
   service srv[:service_name] do
   action :start
+  end
   Chef::Log.log("Restarting the IIS services.")
 end
