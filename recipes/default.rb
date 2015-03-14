@@ -13,7 +13,8 @@ windows_package 'Microsoft Web Deploy v3.5' do
 	action :install
 end
 
-include_recipe "iis"
-include_recipe "iis-nativex::add-windows-feature"
-include_recipe "iis-nativex::create-app-pool"
-include_recipe "iis-nativex::create-config-sites"
+include_recipe 'iis'
+include_recipe 'iis-nativex::add-windows-feature'
+include_recipe 'iis-nativex::create-app-pool'
+include_recipe 'iis-nativex::create-config-sites'
+include_recipe 'iis-nativex::config-iis-handlers'

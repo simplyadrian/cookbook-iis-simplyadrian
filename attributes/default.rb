@@ -6,6 +6,8 @@ default['iis-nativex']['enabled_pools'] = []
 default['iis-nativex']['enables_sites'] = []
 # Configuration commands passed to the iis_config resource.
 default['iis-nativex']['cfg_cmd'] = []
+# Services that will be started and stopped during ARR install
+default['iis-nativex']['services'] = ['W3SVC','WMSVC']
 # ARR application and dependencies installation array
 default['iis-nativex']['arr_application'] = []
 # ARR Helper schema directory
