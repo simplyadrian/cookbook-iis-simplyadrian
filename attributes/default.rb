@@ -4,6 +4,10 @@ default['iis-nativex']['features'] = []
 default['iis-nativex']['enabled_pools'] = []
 # IIS default site names
 default['iis-nativex']['enables_sites'] = []
+# Configuration commands passed to the iis_config resource.
+default['iis-nativex']['cfg_cmd'] = []
+# ARR application and dependencies installation array
+default['iis-nativex']['arr_application'] = []
 # ARR Helper schema directory
 default['iis-nativex']['arr_helper']['schema_dir'] = 'C:\\Windows\\System32\\inetsrv\\config\\'
 # ARR xForwardedForHeaderName

@@ -22,3 +22,18 @@
 #5. Download and install ARR itself. It is currently available in version 3.0
 
 #6. Start the IIS services back (or, simply reboot your server) and you should be good to go!
+
+
+
+# Install all ARR dependencies and ARR application
+node['iis-nativex']['arr_application'].each do |win_pkg|
+  win_pkg windows_package [:package_name] do
+    source win_pkg[:source]
+    installer_type win_pkg[:installer_type]
+    checksum win_pkg[:checksum]
+    options win_pkg[:options]
+    timeout win_pkg[:timeout]
+    version win_pkg[:version]
+    action :install
+  end
+end
