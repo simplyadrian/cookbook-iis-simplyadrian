@@ -5,6 +5,7 @@ default['iis-nativex']['enabled_pools'] = []
 # IIS default site names
 default['iis-nativex']['enables_sites'] = []
 # Configuration commands passed to the iis_config resource.
+# Example #node.default['iis-nativex']['cfg_cmd'] = ["/section:handlers /+[name='svc-Integrated-4.0',path='*.svc',verb='*',type='ISAPI']"]
 default['iis-nativex']['cfg_cmd'] = []
 # Services that will be started and stopped during ARR install
 default['iis-nativex']['services'] = ['W3SVC','WMSVC']

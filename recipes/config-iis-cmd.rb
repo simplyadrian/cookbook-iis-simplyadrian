@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: iis-nativex
-# Recipe:: config-iis-handlers
+# Recipe:: config-iis-cmd
 #
 # Copyright 2015, NativeX
 #
