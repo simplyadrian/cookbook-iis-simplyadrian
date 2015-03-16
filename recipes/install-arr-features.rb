@@ -14,8 +14,6 @@ node['iis-nativex']['services'].each do |srv|
   end
 end
 
-Chef::Log.log("Stopping IIS services before I install the ARR feature and dependencies")
-
 # Install all ARR dependencies and ARR application
 node['iis-nativex']['arr_application'].each do |win_pkg|
   windows_package win_pkg[:package_name] do
@@ -29,13 +27,9 @@ node['iis-nativex']['arr_application'].each do |win_pkg|
   end
 end
 
-Chef::Log.log("Installing the ARR features and dependencies.")
-
 # Start IIS and and Web Management Service
 node['iis-nativex']['services'].each do |srv|
   service srv[:service_name] do
   action :start
   end
 end
-
-Chef::Log.log("Restarting the IIS services.")
