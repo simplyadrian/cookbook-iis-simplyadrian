@@ -9,7 +9,7 @@
 
 # Stop IIS and and Web Management Service
 node['iis-nativex']['services'].each do |srv|
-  service srv[:services] do
+  service srv[:service_name] do
   action :stop
   end
   Chef::Log.log("Stopping IIS services before I install the ARR feature and dependencies")
