@@ -25,6 +25,8 @@ The provided recipes are:
   * It also includes recipes iis-nativex::add-windows-feature", "iis-nativex::create-app-pool" and"iis-nativex::create-config-sites"
 * `iis-nativex::add-windows-feature`:
   * Installs all windows features listed in the ['iis-nativex']['features'] attribute listing.
+* `iis-nativex::config-iis-cmd`:
+  * Runs a config command on your IIS instance. Using the "appcmd.exe set config" utility and syntax.
 * `iis-nativex::create-app-pool`:
   * Creates and configures the application pools defined in ['iis-nativex']['enabled_pools'] attribute.
 * `iis-nativex::create-config-sites`:
@@ -62,6 +64,19 @@ Attributes
     <td><tt>['iis-nativex']['enabled_sites']</tt></td>
     <td>Array</td>
     <td>A set of key pair values that define the configuration of a IIS site. Including :site_name, :protocol, :port, :path,:host_header, :pool_name</td>
+    <td><tt>[]</tt></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><tt>['iis-nativex']['cfg_cmd']</tt></td>
+    <td>Array</td>
+    <td>Configuration commands passed to the iis_config resource. Example #node.default['iis-nativex']['cfg_cmd'] = ["/section:handlers /+[name='svc-Integrated-4.0',path='*.svc',verb='*',type='ISAPI']"]</td>
+    <td><tt>[]</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['iis-nativex']['services']</tt></td>
+    <td>Array</td>
+    <td>Services that will be started and stopped during ARR install.</td>
     <td><tt>[]</tt></td>
   </tr>
   <tr>
