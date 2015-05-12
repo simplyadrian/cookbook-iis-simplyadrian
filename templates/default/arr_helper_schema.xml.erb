@@ -1,9 +1,9 @@
 <configSchema>
   <sectionSchema name="system.webServer/proxyHelper">
-    <attribute name="xForwardedForHeaderName" type="string" defaultValue="<%= node['iis-nativex']['arr_helper']['x_forwarded_for_header_name'] %>" />
-    <attribute name="sslHeaderName" type="string" defaultValue="<%= node['iis-nativex']['arr_helper']['ssl_header_name'] %>" />
-    <attribute name="clientCertHeaderName" type="string" defaultValue="<%= node['iis-nativex']['arr_helper']['client_header_name'] %>" />
-    <attribute name="logGuidName" type="string" defaultValue="<%= node['iis-nativex']['arr_helper']['log_guid_name'] %>" />
+    <attribute name="xForwardedForHeaderName" type="string" defaultValue="<%= node['iis-simplyadrian']['arr_helper']['x_forwarded_for_header_name'] %>" />
+    <attribute name="sslHeaderName" type="string" defaultValue="<%= node['iis-simplyadrian']['arr_helper']['ssl_header_name'] %>" />
+    <attribute name="clientCertHeaderName" type="string" defaultValue="<%= node['iis-simplyadrian']['arr_helper']['client_header_name'] %>" />
+    <attribute name="logGuidName" type="string" defaultValue="<%= node['iis-simplyadrian']['arr_helper']['log_guid_name'] %>" />
     <element name="trustedProxies">
       <attribute name="trustUnlisted" type="bool" defaultValue="true"/>
       <collection addElement="add" removeElement="remove" clearElement="clear">

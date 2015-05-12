@@ -1,21 +1,21 @@
 #
-# Cookbook Name:: iis-nativex
+# Cookbook Name:: iis-simplyadrian
 # Recipe:: add-windows-features
 #
-# Copyright 2015, NativeX
+# Copyright 2015, simplyadrian
 #
 # All rights reserved - Do Not Redistribute
 #
 
 # Stop IIS and and Web Management Service
-node['iis-nativex']['services'].each do |srv|
+node['iis-simplyadrian']['services'].each do |srv|
   service srv[:service_name] do
   action :stop
   end
 end
 
 # Install all ARR dependencies and ARR application
-node['iis-nativex']['arr_application'].each do |win_pkg|
+node['iis-simplyadrian']['arr_application'].each do |win_pkg|
   windows_package win_pkg[:package_name] do
     source win_pkg[:source]
     installer_type win_pkg[:installer_type]
@@ -28,7 +28,7 @@ node['iis-nativex']['arr_application'].each do |win_pkg|
 end
 
 # Start IIS and and Web Management Service
-node['iis-nativex']['services'].each do |srv|
+node['iis-simplyadrian']['services'].each do |srv|
   service srv[:service_name] do
   action :start
   end

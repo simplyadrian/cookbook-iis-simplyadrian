@@ -1,11 +1,11 @@
-iis-nativex CHANGELOG
+iis-simplyadrian CHANGELOG
 =====================
 
-This file is used to list changes made in each version of the iis-nativex cookbook.
+This file is used to list changes made in each version of the iis-simplyadrian cookbook.
 
 0.1.0
 -----
-- Adrian Herrera - Initial release of iis-nativex
+- Adrian Herrera - Initial release of iis-simplyadrian
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

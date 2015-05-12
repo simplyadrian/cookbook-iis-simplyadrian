@@ -1,13 +1,13 @@
 #
-# Cookbook Name:: iis-nativex
+# Cookbook Name:: iis-simplyadrian
 # Recipe:: add-windows-features
 #
-# Copyright 2015, NativeX
+# Copyright 2015, simplyadrian
 #
 # All rights reserved - Do Not Redistribute
 #
 
-node['iis-nativex']['features'].each do |feature|
+node['iis-simplyadrian']['features'].each do |feature|
   windows_feature feature do
     action :install
   end

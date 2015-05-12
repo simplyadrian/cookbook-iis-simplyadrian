@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: iis-nativex
+# Cookbook Name:: iis-simplyadrian
 # Recipe:: install-ARR-helper
 #
-# Copyright 2015, NativeX
+# Copyright 2015, simplyadrian
 #
 # All rights reserved - Do Not Redistribute
 #
@@ -11,7 +11,7 @@
 # Optimize to use a remote file rather then storing an msi in source code.
 
 windows_package 'install ARR helper' do
-	source "C:\\chef\\cache\\cookbooks\\iis-nativex\\files\\default\\arr_helper_x64.msi"
+	source "C:\\chef\\cache\\cookbooks\\iis-simplyadrian\\files\\default\\arr_helper_x64.msi"
 	installer_type :msi
 	action :install
 end
@@ -21,6 +21,6 @@ end
 
 template 'ARR Helper Schema' do
   source 'arr_helper_schema.xml.erb'
-  path "#{node['iis-nativex']['schema_dir']}\\schema.xml"
+  path "#{node['iis-simplyadrian']['schema_dir']}\\schema.xml"
   action :create
 end

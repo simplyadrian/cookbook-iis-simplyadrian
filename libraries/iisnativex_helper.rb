@@ -1,4 +1,4 @@
-module IisNativex
+module IisSimplyadrian
   module Helper
   
     def get_bindings_string( site_cfg )
